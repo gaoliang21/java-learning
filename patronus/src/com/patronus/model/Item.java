@@ -13,18 +13,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-//import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumn;
 //import javax.persistence.OneToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+//import javax.persistence.Transient;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.EnumType;
 
 import com.patronus.constant.ItemOccasion;
 import com.patronus.constant.ItemType;
 
-//import javax.persistence.Transient;
-import javax.persistence.Enumerated;
-import javax.persistence.EnumType;
 
 
+//arrayList --> class, use class with material name variable; then have list of type material in items
 
 @Entity
 @Table(name = "Items")
@@ -61,14 +64,11 @@ public class Item{
 	@Enumerated(EnumType.STRING)
 	private ItemOccasion occasion;
 	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name="MATERIAL_ID")
 	@Column(name="MATERIALS")
-	private ArrayList<String> materials = new ArrayList<String>();
+	private ArrayList<Material> materials = new ArrayList<Material>();
 	
-	@Column(name="FEATURES")
-	private ArrayList<String> specialFeats = new ArrayList<String>();
-	
-	@Column(name="OCCASION")
-	private ArrayList<String> tags = new ArrayList<String>();
 
 	public long getItemID() {
 		return itemID;
@@ -118,25 +118,11 @@ public class Item{
 	public void setOccasion(ItemOccasion occasion) {
 		this.occasion = occasion;
 	}
-	public ArrayList<String> getMaterials() {
+	public ArrayList<Material> getMaterials() {
 		return materials;
 	}
-	public void setMaterials(ArrayList<String> materials) {
+	public void setMaterials(ArrayList<Material> materials) {
 		this.materials = materials;
 	}
-	public ArrayList<String> getSpecialFeats() {
-		return specialFeats;
-	}
-	public void setSepcialFeats(ArrayList<String> sepcialFeats) {
-		this.specialFeats = sepcialFeats;
-	}
-	public ArrayList<String> getTags() {
-		return tags;
-	}
-	public void setTags(ArrayList<String> tags) {
-		this.tags = tags;
-	}
-	
-	
 	
 }

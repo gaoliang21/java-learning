@@ -33,12 +33,13 @@ public class Order {
 	private OrderStatus status;
 	
 	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name="ITEM_ID")
 	@Column(name="ITEM_LIST")
 	private ArrayList<Item> items = new ArrayList<Item>();
 	
 //	UNSURE about cascade types
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="PATIENT_ID")
+	@JoinColumn(name="CLIENT_ID")
 	private Client client;
 	
 	public long getOrderID() {
