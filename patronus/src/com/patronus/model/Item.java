@@ -38,7 +38,7 @@ public class Item{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ITEM_ID")
+	@Column(name = "ID")
 	private long itemID;
 	
 	@Column(name="NUM_IN_STOCK")
@@ -67,7 +67,7 @@ public class Item{
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name="MATERIAL_ID")
 	@Column(name="MATERIALS")
-	private ArrayList<Material> materials = new ArrayList<Material>();
+	private List<Material> materials = new ArrayList<Material>();
 	
 
 	public long getItemID() {
@@ -118,10 +118,10 @@ public class Item{
 	public void setOccasion(ItemOccasion occasion) {
 		this.occasion = occasion;
 	}
-	public ArrayList<Material> getMaterials() {
+	public List<Material> getMaterials() {
 		return materials;
 	}
-	public void setMaterials(ArrayList<Material> materials) {
+	public void setMaterials(List<Material> materials) {
 		this.materials = materials;
 	}
 	

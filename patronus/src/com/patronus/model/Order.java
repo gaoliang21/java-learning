@@ -17,12 +17,12 @@ import javax.persistence.Table;
 import com.patronus.constant.OrderStatus;
 
 @Entity
-@Table(name = "ORDER")
+@Table(name = "P_ORDER")
 public class Order {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ORDER_ID")
+	@Column(name = "ID")
 	private long orderID;
 	
 	@Column(name = "DATE_TIME")
@@ -34,10 +34,8 @@ public class Order {
 	
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name="ITEM_ID")
-	@Column(name="ITEM_LIST")
-	private ArrayList<Item> items = new ArrayList<Item>();
+	private List<Item> items = new ArrayList<Item>();
 	
-//	UNSURE about cascade types
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="CLIENT_ID")
 	private Client client;
@@ -66,10 +64,10 @@ public class Order {
 	public void setStatus(OrderStatus status) {
 		this.status = status;
 	}
-	public ArrayList<Item> getIitems() {
+	public List<Item> getIitems() {
 		return items;
 	}
-	public void setItems(ArrayList<Item> items) {
+	public void setItems(List<Item> items) {
 		this.items = items;
 	}
 	

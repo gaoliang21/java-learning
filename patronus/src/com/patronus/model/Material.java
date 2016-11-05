@@ -13,7 +13,7 @@ public class Material {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "MATERIAL_ID")
+	@Column(name = "ID")
 	private long materialID;
 	
 	@Column(name = "MATERIAL_NAME")
