@@ -100,20 +100,20 @@ public class Item{
 	public void setColor(String color) {
 		this.color = color;
 	}
-	public String getName() {
+	public String getItemName() {
 		return itemName;
 	}
-	public void setName(String itemName) {
+	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
 	public ItemType getItemType() {
 		return itemType;
 	}
-	public ItemOccasion getOccasion() {
-		return occasion;
-	}
 	public void setItemType(ItemType itemType) {
 		this.itemType = itemType;
+	}
+	public ItemOccasion getOccasion() {
+		return occasion;
 	}
 	public void setOccasion(ItemOccasion occasion) {
 		this.occasion = occasion;
