@@ -1,14 +1,10 @@
 package com.patronus.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.JoinColumn;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -24,15 +20,11 @@ public class Client {
 	@Column(name="CLI_NAME")
 	private String clientName;
 	
-	@Column(name="SHIPPING_ADR")
-	private String shippingAdr;
+	@Column(name="SHIPPING_ADDRESS")
+	private String shippingAddress;
 	
-	@Column(name="BILLING_ADR")
-	private String billingAdr;
-	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-	@JoinColumn(name="PATIENT_ID")
-	private Order order;
+	@Column(name="BILLING_ADDRESS")
+	private String billingAddress;
 	
 	public long getClientID() {
 		return clientID;
@@ -46,25 +38,19 @@ public class Client {
 	public void setClientName(String clientName) {
 		this.clientName = clientName;
 	}
-	public String getShippingAdr() {
-		return shippingAdr;
+	public String getShippingAddress() {
+		return shippingAddress;
 	}
-	public void setShippingAdr(String shippingAdr) {
-		this.shippingAdr = shippingAdr;
+	public void setShippingAddress(String shippingAddress) {
+		this.shippingAddress = shippingAddress;
 	}
-	public String getBillingAdr() {
-		return billingAdr;
+	public String getBillingAddress() {
+		return billingAddress;
 	}
-	public void setBillingAdr(String billingAdr) {
-		this.billingAdr = billingAdr;
+	public void setBillingAddress(String billingAddress) {
+		this.billingAddress = billingAddress;
 	}
 	
-	public Order getOrder() {
-		return order;
-	}
-	public void setOrder(Order order) {
-		this.order = order;
-	}
 	
 	
 }

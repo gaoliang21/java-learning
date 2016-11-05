@@ -1,4 +1,4 @@
-package com.patronus.constants;
+package com.patronus.constant;
 
 public enum ItemType {
 	ACCESSORY, CLOTHING, SHOES

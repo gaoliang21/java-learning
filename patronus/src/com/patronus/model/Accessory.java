@@ -1,7 +1,5 @@
 package com.patronus.model;
 
-import com.patronus.constants.AccessoryType;
-
 import javax.persistence.Column;
 //QUESTION : need import all used annotations even if already imported in item (extended class)?
 import javax.persistence.DiscriminatorValue;
@@ -9,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
+
+import com.patronus.constant.AccessoryType;
 
 
 

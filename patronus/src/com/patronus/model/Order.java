@@ -1,8 +1,6 @@
 package com.patronus.model;
 import java.util.*;
-import com.patronus.constants.OrderStatus;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -13,7 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.patronus.constant.OrderStatus;
 
 @Entity
 @Table(name = "ORDER")
@@ -25,18 +26,18 @@ public class Order {
 	private long orderID;
 	
 	@Column(name = "DATE_TIME")
-	private Date dateTimeProcessed;
+	private Date processedDateTime;
 	
 	@Column(name="STATUS")
 	@Enumerated(EnumType.STRING)
 	private OrderStatus status;
 	
+	@OneToMany(fetch = FetchType.EAGER)
 	@Column(name="ITEM_LIST")
-	private ArrayList<Item> itemsOrdered = new ArrayList<Item>();
+	private ArrayList<Item> items = new ArrayList<Item>();
 	
 //	UNSURE about cascade types
-	@OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.REFRESH, 
-					  CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH})
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="PATIENT_ID")
 	private Client client;
 	
@@ -52,11 +53,11 @@ public class Order {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	public Date getDateTimeProcessed() {
-		return dateTimeProcessed;
+	public Date getProcessedDateTime() {
+		return processedDateTime;
 	}
-	public void setDateTimeProcessed(Date dateTimeProcessed) {
-		this.dateTimeProcessed = dateTimeProcessed;
+	public void setProcessedDateTime(Date processedDateTime) {
+		this.processedDateTime = processedDateTime;
 	}
 	public OrderStatus getStatus() {
 		return status;
@@ -64,11 +65,11 @@ public class Order {
 	public void setStatus(OrderStatus status) {
 		this.status = status;
 	}
-	public ArrayList<Item> getItemsOrdered() {
-		return itemsOrdered;
+	public ArrayList<Item> getIitems() {
+		return items;
 	}
-	public void setItemsOrdered(ArrayList<Item> itemsOrdered) {
-		this.itemsOrdered = itemsOrdered;
+	public void setItems(ArrayList<Item> items) {
+		this.items = items;
 	}
 	
 	

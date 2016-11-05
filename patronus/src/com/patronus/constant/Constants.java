@@ -1,4 +1,4 @@
-package com.patronus.constants;
+package com.patronus.constant;
 
 //JUST TO KEEP TRACK OF CONSTANTS NOT USING THIS CLASS
 

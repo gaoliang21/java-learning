@@ -1,11 +1,11 @@
 package com.patronus.model;
 
-import com.patronus.constants.ShoeType;
-
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;;
+import javax.persistence.Table;
+
+import com.patronus.constant.ShoeType;;
 
 @Entity
 @Table(name = "SHOES")

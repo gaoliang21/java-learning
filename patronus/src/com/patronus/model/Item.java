@@ -1,9 +1,6 @@
 package com.patronus.model;
 import java.util.*;
 
-import com.patronus.constants.ItemOccasion;
-import com.patronus.constants.ItemType;
-
 //import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -19,6 +16,10 @@ import javax.persistence.InheritanceType;
 //import javax.persistence.JoinColumn;
 //import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.patronus.constant.ItemOccasion;
+import com.patronus.constant.ItemType;
+
 //import javax.persistence.Transient;
 import javax.persistence.Enumerated;
 import javax.persistence.EnumType;

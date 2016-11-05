@@ -1,6 +1,6 @@
 package com.patronus.model;
 
-import com.patronus.constants.ClothingType;
+import static com.patronus.constant.Constants.careType;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
@@ -9,7 +9,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
-import static com.patronus.constants.Constants.careType;
+import com.patronus.constant.ClothingType;
 
 @Entity
 @Table(name = "CLOTHING")
